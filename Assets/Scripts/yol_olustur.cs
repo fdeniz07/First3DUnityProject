@@ -11,18 +11,31 @@ public class yol_olustur : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            yol_olusturma();
+           yol_olusturma();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void yol_olusturma()
+    public void yol_olusturma()
     {
-        son_yol = Instantiate(son_yol, son_yol.transform.position+ Vector3.forward, son_yol.transform.rotation); // calisma zamaninda projeye yeni nesne ekleme komutu
+        Vector3 yon;
+        if (Random.Range(0, 2) == 0)
+        {
+            yon=Vector3.forward;
+        }
+        else
+        {
+            yon=Vector3.left;
+        }
+
+        son_yol = Instantiate(son_yol, son_yol.transform.position + yon, son_yol.transform.rotation);
+
+        // son_yol = Instantiate(son_yol, son_yol.transform.position + Vector3.forward, son_yol.transform.rotation); // calisma zamaninda projeye yeni nesne ekleme komutu +z yönünde
+
     }
 }

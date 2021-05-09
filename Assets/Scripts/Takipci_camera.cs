@@ -1,31 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Takipci_camera : MonoBehaviour
+public class takipci_camera : MonoBehaviour
 {
 
-    public Transform takip_edilen;
-    public Vector3 mesafe;
-
+    public Transform takip_edilen; //kameranin takip edecegi nesne
+    public Vector3 mesafe; //kamera ile takip edilen nesne arasi uzaklik
 
     void Start()
     {
         mesafe = transform.position - takip_edilen.position;
-
     }
 
-    void Update()
+    void LateUpdate()//kamera islemleri icin lateupdate kullaniyoruz
     {
-        
-    }
-
-    void LateUpdate()
-    {
-        if (kure_hareket.fall)
-        {
-            return;
-        }
+        if (kure_hareket.fall == true)
+        { return; }
         transform.position = takip_edilen.position + mesafe;
     }
 }
